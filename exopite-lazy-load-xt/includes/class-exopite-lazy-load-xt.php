@@ -184,7 +184,8 @@ class Exopite_Lazy_Load_Xt {
          * hook to 12, after shortcode
          * https://core.trac.wordpress.org/browser/tags/4.3.1/src/wp-includes/default-filters.php
          */
-		$this->loader->add_filter( 'the_content', $plugin_public, 'do_lazyload', 12 );
+        $this->loader->add_filter( 'the_content', $plugin_public, 'do_lazyload', 12 );
+		$this->loader->add_filter( 'widget_text', $plugin_public, 'do_lazyload', 12 );
         //$this->loader->add_filter( 'image_lazyload_dummy_image', $plugin_public, 'image_lazyload_dummy_image' );
 
         // Filters the list of attachment image attributes.
