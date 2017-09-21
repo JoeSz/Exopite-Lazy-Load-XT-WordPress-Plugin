@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              http://joe.szalai.org
- * @since             1.1.1
+ * @since             20170921
  * @package           Exopite_Lazy_Load_Xt
  *
  * @wordpress-plugin
@@ -30,24 +30,8 @@
 
 /*
 ToDo:
- - settings to react images only with a certain class?
  - noscript images-ok/videos/iframe? as fallback
- - process: content-ok, meta!?, embedded-ok, widget_text
    https://siteorigin.com/thread/were-is-the-pagebuilder-data-stored/
- - filter placeholder image:
-    add_filter( ‘lazyload_images_placeholder_image’, ‘my_custom_lazyload_placeholder_image’ );
-    function my_custom_lazyload_placeholder_image( $image ) {
-         return ‘http://url/to/image’;
-    }
- - Add schema.org markup to your Youtube and Vimeo videos
- - deactivate lazyload on some page via filter
-    add_action( 'wp', 'deactivate_rocket_lazyload_on_single' );
-    function deactivate_rocket_lazyload_on_single() {
-        if ( is_single() ) {
-            add_filter( 'do_rocket_lazyload', '__return_false' );
-        }
-    }
-
  */
 
 
