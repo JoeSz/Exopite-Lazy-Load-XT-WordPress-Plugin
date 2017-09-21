@@ -16,6 +16,8 @@ Lazy load images to improve page load times. Page speed is important, not only f
 
 Exopite Lazy Load XT lazy load your images, videos and iframes using <a href="https://github.com/ressio/lazy-load-xt" target="_blank">Ressio Lazy Load XT</a> jQuery plugin.
 
+Plugin uses <a href="http://simplehtmldom.sourceforge.net/" target="_blank" rel="noopener">PHP Simple HTML DOM Parser</a> and not REGEX to parse content.
+
 The plugin works by replacing the src attributes with data-src and loading the Lazy Load XT script when the content or page meta is loaded on the front end of your site.
 
 Since GoogleBOT crawling javascript, there is no disadvantage of this technique. Official news on crawling and indexing sites for the Google index.
