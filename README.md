@@ -13,17 +13,19 @@ DESCRIPTION
 -----------
 
 Lazy load images to improve page load times. Page speed is important, not only for SEO but also for your customers user experience.
-Description
 
 Exopite Lazy Load XT lazy load your images, videos and iframes using <a href="https://github.com/ressio/lazy-load-xt" target="_blank">Ressio Lazy Load XT</a> jQuery plugin.
 
 The plugin works by replacing the src attributes with data-src and loading the Lazy Load XT script when the content or page meta is loaded on the front end of your site.
 
 Since GoogleBOT crawling javascript, there is no disadvantage of this technique. Official news on crawling and indexing sites for the Google index.
-Features
 
-- You can turn on what types of content want you to lazy load (images, videos, iframes, background images).
-- You can also exclude content between `[NOLAZY][/NOLAZY]` and tags
+FEATURES
+--------
+
+- Replace sepcified type of content in the_content and widget_text.
+- Can be turn on/off what types of content want you to lazy load (images, videos, iframes, background images).
+- Can also be exclude content between `[NOLAZY][/NOLAZY]` and tags,
 - or with a specified class. Default: `.no-lazy` This is especially usefull if you are already using other lazy load based plugins/sliders, like Master Slider.
 - Override placeholder images via `exopite_lazyload_xt_placeholder_image`,
 - Turn off lazy loading via `exopite_lazyload_xt_enabled` filter. Can use for disable it on a specific page, etc...
