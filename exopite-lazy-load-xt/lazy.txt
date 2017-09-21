@@ -1,0 +1,6 @@
+https://github.com/MarcDK/Lazy-Loading-Responsive-Images/blob/master/lazy-load-responsive-images.php
+https://florianbrinkmann.de/1122/responsive-images-und-lazy-loading-in-wordpress/
+
+http://simplehtmldom.sourceforge.net/manual_api.htm
+http://simplehtmldom.sourceforge.net/manual.htm
+https://stackoverflow.com/search?page=2&tab=Relevance&q=PHP%20Simple%20HTML%20DOM%20Parser
