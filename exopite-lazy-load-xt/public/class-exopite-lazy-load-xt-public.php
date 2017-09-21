@@ -139,7 +139,7 @@ class Exopite_Lazy_Load_Xt_Public {
 	}
 
 	public function image_lazyload_dummy_image() {
-		return  plugin_dir_url( __FILE__ ) . 'ripple.svg';
+        return apply_filters( 'exopite_lazyload_xt_placeholder_image', plugin_dir_url( __FILE__ ) . 'ripple.svg' );
 	}
 
     /**
@@ -168,6 +168,7 @@ class Exopite_Lazy_Load_Xt_Public {
     public function do_lazyload( $content ) {
 
         // $start = microtime(true);
+        if ( ! apply_filters( 'exopite_lazyload_xt_enabled', true ) ) return $content;
 
         $new_content = '';
 
@@ -272,6 +273,9 @@ class Exopite_Lazy_Load_Xt_Public {
      */
     private function process_video( $video ) {
 
+        // Get original image for noscript
+        $video_noscript = $video->outertext;
+
         $classes = explode(' ', $video->getAttribute( 'class' ) );
 
         if ( $this->check_classes( $classes ) ) {
@@ -302,6 +306,10 @@ class Exopite_Lazy_Load_Xt_Public {
 
                 }
             }
+
+            // Add original image after noscript tag for fallback
+            $video->outertext .= '<noscript>' . $video_noscript . '</noscript>';
+
         }
 
         return $video;
