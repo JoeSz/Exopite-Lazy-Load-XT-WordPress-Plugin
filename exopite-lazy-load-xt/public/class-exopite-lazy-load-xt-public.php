@@ -170,6 +170,13 @@ class Exopite_Lazy_Load_Xt_Public {
         // $start = microtime(true);
         if ( ! apply_filters( 'exopite_lazyload_xt_enabled', true ) ) return $content;
 
+        /**
+         * To prevent run multiple times (eg. SiteOrigin Pgae Builder run 4 times because the widget_text in the_content).
+         * For some reason, this prevent to run multiple times on the content (if contain widgets).
+         */
+        if ( ! apply_filters( 'exopite_lazyload_xt_run', true ) ) return $content;
+        add_filter( 'exopite_lazyload_xt_run', '__return_false' );
+
         $new_content = '';
 
         // do not lazyload between [NOLAZY] and [/NOLAZY] -> for exapmle: sliders with lazyload, like masterslider
@@ -191,12 +198,12 @@ class Exopite_Lazy_Load_Xt_Public {
             }
         }
 
-        // $time_elapsed_secs = microtime(true) - $start;
-        // echo "Elapsed: " . $time_elapsed_secs . "s<br>";
-
         return $new_content;
 
     }
+
+
+
     /**
      * Check if given class(es) is a class(es) to exclude
      *
@@ -256,10 +263,8 @@ class Exopite_Lazy_Load_Xt_Public {
 
             // Add original image after noscript tag for fallback
             $image->outertext .= '<noscript>' . $image_noscript . '</noscript>';
-
         }
 
-        return $image;
     }
 
     /**
@@ -312,8 +317,6 @@ class Exopite_Lazy_Load_Xt_Public {
 
         }
 
-        return $video;
-
     }
 
     /**
@@ -340,8 +343,6 @@ class Exopite_Lazy_Load_Xt_Public {
             $iframe->setAttribute('data-src', $iframe_src);
 
         }
-
-        return $iframe;
 
     }
 
@@ -410,7 +411,7 @@ class Exopite_Lazy_Load_Xt_Public {
             // Process images
             foreach( $html->find( 'img' ) as $image ){
 
-                $image = $this->process_image( $image );
+                $this->process_image( $image );
 
             }
 
@@ -421,7 +422,7 @@ class Exopite_Lazy_Load_Xt_Public {
             // Process images
             foreach( $html->find( 'video' ) as $video ){
 
-                $video = $this->process_video( $video );
+                $this->process_video( $video );
 
             }
 
@@ -431,7 +432,7 @@ class Exopite_Lazy_Load_Xt_Public {
 
             foreach( $html->find('iframe') as $iframe) {
 
-                $iframe = $this->process_iframe( $iframe );
+                $this->process_iframe( $iframe );
 
             }
         }
@@ -443,6 +444,9 @@ class Exopite_Lazy_Load_Xt_Public {
         }
 
         $piece = $html->save();
+
+        $html->clear();
+        unset($html);
 
         return $piece;
 
