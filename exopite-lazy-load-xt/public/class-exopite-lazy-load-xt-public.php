@@ -174,8 +174,8 @@ class Exopite_Lazy_Load_Xt_Public {
          * To prevent run multiple times (eg. SiteOrigin Pgae Builder run 4 times because the widget_text in the_content).
          * For some reason, this prevent to run multiple times on the content (if contain widgets).
          */
-        if ( ! apply_filters( 'exopite_lazyload_xt_run', true ) ) return $content;
-        add_filter( 'exopite_lazyload_xt_run', '__return_false' );
+        // if ( ! apply_filters( 'exopite_lazyload_xt_run', true ) ) return $content;
+        // add_filter( 'exopite_lazyload_xt_run', '__return_false' );
 
         $new_content = '';
 
