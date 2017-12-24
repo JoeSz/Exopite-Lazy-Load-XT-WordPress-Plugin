@@ -32,6 +32,9 @@
 ToDo:
  - noscript images-ok/videos/iframe? as fallback
    https://siteorigin.com/thread/were-is-the-pagebuilder-data-stored/
+ - Add method selector to admin (def. method-2)
+ - Add "content" field to admin (def. body)
+   In this case, process only HTML in selector, avoid e.g. to lazyload logos.
  */
 
 
