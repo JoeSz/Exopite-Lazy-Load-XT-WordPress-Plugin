@@ -159,6 +159,20 @@ class Exopite_Lazy_Load_Xt_Public {
         return $attr;
     }
 
+    public function buffer_start() {
+
+        // Start output buffering with a callback function
+        ob_start( array( $this, 'do_lazyload' ) );
+
+    }
+
+    public function buffer_end() {
+
+        // Display buffer
+        if ( ob_get_length() ) ob_end_flush();
+
+    }
+
     /**
      * Filter content section which is not inside [NOLAZY] and [/NOLAZY] tags
      *
