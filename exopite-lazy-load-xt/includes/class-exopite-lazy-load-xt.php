@@ -179,13 +179,54 @@ class Exopite_Lazy_Load_Xt {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		/*
-         * Add filter to content
-         * hook to 12, after shortcode
-         * https://core.trac.wordpress.org/browser/tags/4.3.1/src/wp-includes/default-filters.php
-         */
-        $this->loader->add_filter( 'the_content', $plugin_public, 'do_lazyload', 12 );
-		// $this->loader->add_filter( 'widget_text', $plugin_public, 'do_lazyload', 12 );
+        $method = 'method-2';
+
+        switch ( $method ) {
+
+            case 'method-1':
+
+                /*
+                 * Add filter to content
+                 * hook to 12, after shortcode
+                 * https://core.trac.wordpress.org/browser/tags/4.3.1/src/wp-includes/default-filters.php
+                 *
+                 * The problems with this method:
+                 * - some page builder does not use content, they save data in meta,
+                 * - 'widget_text' -> in case of SiteOrigin Page Builder, becuase they
+                 *   use widgets on the page builder content, will run twice.
+                 */
+                $this->loader->add_filter( 'the_content', $plugin_public, 'do_lazyload', 12 );
+                // $this->loader->add_filter( 'widget_text', $plugin_public, 'do_lazyload', 12 );
+
+                break;
+
+            case 'method-2':
+
+                /*
+                 * Start buffering when wp_loaded hook called
+                 * end buffering when showdown hook called
+                 *
+                 * In this case we can process the whole HTML just before it is send it to the browser.
+                 * Need to be disabled in admin, doing JSON, REST, XMLRPC or AJAX request, also in this cases
+                 * LazyLoad in unnecessarily.
+                 *
+                 */
+                if ( ! ( ( defined( 'JSON_REQUEST' ) && JSON_REQUEST ) ||
+                         ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ||
+                         ( defined('XMLRPC_REQUEST') && XMLRPC_REQUEST ) ||
+                         ( defined('DOING_AJAX') && DOING_AJAX ) ||
+                         is_admin()
+                    ) ) {
+
+                    $this->loader->add_filter( 'wp_loaded', $plugin_public, 'buffer_start', 12 );
+                    $this->loader->add_filter( 'shutdown', $plugin_public, 'buffer_end', 12 );
+
+                }
+
+                break;
+
+        }
+
         //$this->loader->add_filter( 'image_lazyload_dummy_image', $plugin_public, 'image_lazyload_dummy_image' );
 
         // Filters the list of attachment image attributes.
