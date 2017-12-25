@@ -59,13 +59,35 @@ class Exopite_Lazy_Load_Xt_Admin {
 		//add_filter( 'the_content', array( $this, 'exopite_preprare_lazyload' ) );
 	}
 
+    /**
+     * Register the stylesheets for the admin area.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_styles() {
+
+        /**
+         * This function is provided for demonstration purposes only.
+         *
+         * An instance of this class should be passed to the run() function
+         * defined in Exopite_Combiner_Minifier_Loader as all of the hooks are defined
+         * in that particular class.
+         *
+         * The Exopite_Combiner_Minifier_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this
+         * class.
+         */
+
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/exopite-lazy-load-xt-admin.css', array(), $this->version, 'all' );
+
+    }
+
 	// From here
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @since    1.0.0
 	 */
-
 	public function add_plugin_admin_menu() {
 
 	    /*
@@ -76,7 +98,14 @@ class Exopite_Lazy_Load_Xt_Admin {
 	     *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 	     *
 	     */
-	    add_submenu_page('plugins.php', 'Exopite Lazy Load XT Options Functions Setup', 'Exopite LazyLoadXT', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page'));
+	    add_submenu_page(
+            'plugins.php',
+            'Exopite Lazy Load XT Options Functions Setup',
+            'Exopite LazyLoadXT',
+            'manage_options',
+            $this->plugin_name,
+            array( $this, 'display_plugin_setup_page' )
+        );
 	}
 
 	 /**
@@ -121,6 +150,8 @@ class Exopite_Lazy_Load_Xt_Admin {
 	    $valid['iframe'] = (isset($input['iframe']) && !empty($input['iframe'])) ? 1 : 0;
 	    $valid['background'] = (isset($input['background']) && !empty($input['background'])) ? 1 : 0;
 	    $valid['exclude'] = (isset($input['exclude']) && !empty($input['exclude'])) ? 1 : 0;
+        $valid['lazyload-only-in'] = esc_attr($input['lazyload-only-in']);
+        $valid['method'] = esc_attr($input['method']);
 	    $valid['excluded'] = esc_attr($input['excluded']);
 
 	    return $valid;
