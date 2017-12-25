@@ -1,0 +1,48 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+/* Toggle button */
+.checkbox__switch, .checkbox__switch:after {
+    display: block;
+    height: 2em;
+    border: 2px solid rgba(247, 29, 29, 0.74);
+    border-radius: 2em;
+}
+
+.checkbox__input {
+    display: none !important;
+}
+.checkbox__input:checked + .checkbox__switch:after {
+    left: 1em;
+}
+.checkbox__input:checked + .checkbox__switch:before {
+    left: 0;
+}
+.checkbox__input:checked + .checkbox__switch {
+    border-color: #4cd964;
+    background-color: #4cd964;
+}
+.checkbox__switch {
+    -webkit-transition: 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition: 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    position: relative;
+    /*margin: 100px auto;*/
+    width: 3em;
+    /*background-color: rgba(142, 142, 147, 0.07);*/
+    background-color: rgba(247, 29, 29, 0.74);
+}
+.checkbox__switch:after {
+    content: "";
+    -webkit-transition: 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition: 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    content: "";
+    width: 2em;
+    background-color: white;
+    border: none;
+    position: absolute;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4), 0 0 2px rgba(0, 0, 0, 0.4);
+    top: 0px;
+    left: 0px;
+}
