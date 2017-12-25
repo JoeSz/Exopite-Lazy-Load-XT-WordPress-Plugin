@@ -162,7 +162,7 @@ class Exopite_Lazy_Load_Xt_Public {
     public function buffer_start() {
 
         // Start output buffering with a callback function
-        ob_start( array( $this, 'do_lazyload' ) );
+        ob_start( array( $this, 'do_lazyload_fregment' ) );
 
     }
 
@@ -170,6 +170,36 @@ class Exopite_Lazy_Load_Xt_Public {
 
         // Display buffer
         if ( ob_get_length() ) ob_end_flush();
+
+    }
+
+    public function do_lazyload_fregment( $content ) {
+
+        $html = new simple_html_dom();
+
+        // Load HTML from a string/variable
+        $html->load( $content, $lowercase = true, $stripRN = false, $defaultBRText = DEFAULT_BR_TEXT );
+
+        $options = get_option($this->plugin_name);
+        $lazyload_only_in = $options['lazyload-only-in'];
+
+        $contents = $html->find( $lazyload_only_in );
+
+        // $contents = $html->find( '#content' );
+
+        foreach( $contents as $item ) {
+
+            $item->innertext = $new_content .= $this->do_lazyload_filter( $item->innertext );
+            // $item->innertext = $this->do_lazyload( $item->innertext );
+
+        }
+
+        $content = $html->save();
+
+        $html->clear();
+        unset($html);
+
+        return $content . ", in: " . $lazyload_only_in;
 
     }
 
