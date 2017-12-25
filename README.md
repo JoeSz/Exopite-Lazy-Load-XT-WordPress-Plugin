@@ -2,7 +2,7 @@
 Exopite Lazy Load XT lazy load your images, videos and iframes using Ressio Lazy Load XT jQuery plugin.
 
 - Author: Joe Szalai
-- Version: 20171224
+- Version: 20171225
 - Plugin URL: https://github.com/JoeSz/Exopite-Lazy-Load-XT-WordPress-Plugin
 - Author URL: https://joe.szalai.org
 - License: GNU General Public License v3 or later
@@ -61,6 +61,9 @@ OR
 
 CHANGELOG
 ---------
+
+= 20171225 - 2017-12-25 =
+* Added: option to select between methods.
 
 = 20171224 - 2017-12-24 =
 * Added: new method to process images. Process HTML with output buffering

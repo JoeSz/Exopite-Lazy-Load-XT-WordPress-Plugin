@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              http://joe.szalai.org
- * @since             20171224
+ * @since             20171225
  * @package           Exopite_Lazy_Load_Xt
  *
  * @wordpress-plugin
