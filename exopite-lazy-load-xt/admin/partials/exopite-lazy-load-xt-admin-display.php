@@ -37,6 +37,9 @@ if ( ! defined( 'WPINC' ) ) {
         $background = (isset($options['background']) && !empty($options['background'])) ? 1 : 0;
         $exclude = (isset($options['exclude']) && !empty($options['exclude'])) ? 1 : 0;
         $excluded = (isset($options['excluded']) && !empty($options['excluded'])) ? esc_attr($options['excluded']) : '';
+        $lazyload_only_in = (isset($options['lazyload-only-in']) && !empty($options['lazyload-only-in'])) ? esc_attr($options['lazyload-only-in']) : 'body';
+        $method = (isset($options['method']) && !empty($options['method'])) ? esc_attr($options['method']) : 'method-2';
+        $methods = array( 'method-1', 'method-2' );
 
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
@@ -129,9 +132,28 @@ if ( ! defined( 'WPINC' ) ) {
         <div style="margin-left: 24px;"><?php _e('(Please set background url in style tag with data-bg attribute.)', $this->plugin_name); ?></div>
     </fieldset>
 <br>
+    <!-- Method -->
+    <fieldset>
+        <p><?php _e('Select methods.', $this->plugin_name); ?></p>
+        <select name="<?php echo $this->plugin_name; ?>[method]">
+            <?php foreach ($methods as $value ) : ?>
+            <option value="<?php echo $value; ?>" <?php if( $value == $method ) echo ' selected="selected"' ?>><?php echo $value; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <p><i><?php _e('method-1: use content, method-2: process HTML before sent to browser.', $this->plugin_name); ?><br>
+        <?php _e('method-2: process HTML before sent to browser.', $this->plugin_name); ?></i></p>
+    </fieldset>
+
+    <!-- Layzload inlazyload-only-in -->
+    <fieldset>
+        <p><?php _e('Lazyload only in selector. Only one selector and only for method-2. ', $this->plugin_name); ?></p>
+        <legend class="screen-reader-text"><span><?php _e('Lazyload in', $this->plugin_name); ?></span></legend>
+        <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-lazyload-only-in" name="<?php echo $this->plugin_name; ?>[lazyload-only-in]" value="<?php if(!empty($lazyload_only_in)) echo $lazyload_only_in; ?>"/>
+    </fieldset>
+
     <!-- Exclude classes -->
     <fieldset>
-        <legend class="screen-reader-text"><span><?php _e('Exclude classes', $this->plugin_name); ?></span></legend>
+        <legend class="screen-reader-text"><span><?php _e('Exclude classes, only for method-1.', $this->plugin_name); ?></span></legend>
         <label for="<?php echo $this->plugin_name; ?>-exclude">
             <input type="checkbox"  id="<?php echo $this->plugin_name; ?>-exclude" name="<?php echo $this->plugin_name; ?>[exclude]" value="1" <?php checked($exclude,1); ?>/>
             <span><?php esc_attr_e('Exclude classes', $this->plugin_name); ?></span>
