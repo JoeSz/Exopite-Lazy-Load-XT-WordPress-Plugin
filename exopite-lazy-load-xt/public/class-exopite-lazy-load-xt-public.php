@@ -199,7 +199,7 @@ class Exopite_Lazy_Load_Xt_Public {
         $html->clear();
         unset($html);
 
-        return $content . ", in: " . $lazyload_only_in;
+        return $content;
 
     }
 
