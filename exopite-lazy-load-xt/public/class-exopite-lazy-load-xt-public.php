@@ -106,7 +106,7 @@ class Exopite_Lazy_Load_Xt_Public {
 		 */
 
 		$options = get_option($this->plugin_name);
-        $autoload = (isset($options['autoload']) && !empty($options['autoload'])) ? 1 : 0;
+        $autoload = ( isset( $options['autoload'] ) && $options['autoload'] == 'yes' ) ? 1 : 0;
 
 		// Source: https://github.com/ressio/lazy-load-xt
 		// CDN: https://cdnjs.com/libraries/jquery.lazyloadxt/
@@ -409,11 +409,11 @@ class Exopite_Lazy_Load_Xt_Public {
         if ( empty( $piece ) ) return;
 
         $options = get_option( $this->plugin_name);
-        $lazyload_video = ( isset( $options['video'] ) && ! empty( $options['video'] ) ) ? 1 : 0;
-        $lazyload_iframe = ( isset( $options['iframe'] ) && ! empty( $options['iframe'] ) ) ? 1 : 0;
-        $lazyload_image = ( isset( $options['image'] ) && ! empty( $options['image'] ) ) ? 1 : 0;
-        $lazyload_background = ( isset( $options['background'] ) && ! empty( $options['background'] ) ) ? 1 : 0;
-        $lazyload_exclude = ( isset( $options['exclude'] ) && ! empty( $options['exclude'] ) ) ? 1 : 0;
+        $lazyload_video = ( isset( $options['video'] ) && $options['video'] == 'yes' ) ? 1 : 0;
+        $lazyload_iframe = ( isset( $options['iframe'] ) && $options['iframe'] == 'yes' ) ? 1 : 0;
+        $lazyload_image = ( isset( $options['image'] ) && $options['image'] == 'yes' ) ? 1 : 0;
+        $lazyload_background = ( isset( $options['background'] ) && $options['background'] == 'yes' ) ? 1 : 0;
+        $lazyload_exclude = ( isset( $options['exclude'] ) && $options['exclude'] == 'yes' ) ? 1 : 0;
         $lazyload_excluded = ( isset( $options['excluded'] ) && ! empty( $options['excluded'] ) ) ? esc_attr( $options['excluded'] ) : '';
         $folder = plugin_dir_url( __FILE__ );
 
