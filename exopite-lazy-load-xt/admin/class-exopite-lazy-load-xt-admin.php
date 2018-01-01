@@ -82,83 +82,118 @@ class Exopite_Lazy_Load_Xt_Admin {
 
     }
 
-	// From here
-	/**
-	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
-	 *
-	 * @since    1.0.0
-	 */
-	public function add_plugin_admin_menu() {
+    public function create_menu() {
 
-	    /*
-	     * Add a settings page for this plugin to the Settings menu.
-	     *
-	     * NOTE:  Alternative menu locations are available via WordPress administration menu functions.
-	     *
-	     *        Administration Menus: http://codex.wordpress.org/Administration_Menus
-	     *
-	     */
-	    add_submenu_page(
-            'plugins.php',
-            'Exopite Lazy Load XT Options Functions Setup',
-            'Exopite LazyLoadXT',
-            'manage_options',
-            $this->plugin_name,
-            array( $this, 'display_plugin_setup_page' )
+        $config = array(
+
+            'type'              => 'menu',                          // Required, menu or metabox
+            'id'                => $this->plugin_name,              // Required, meta box id, unique per page, to save: get_option( id )
+            'menu'              => 'plugins.php',                   // Required, sub page to your options page
+            'submenu'           => true,                            // Required for submenu
+            'title'             => 'Exopite LazyLoadXT',            //The name of this page
+            'capability'        => 'manage_options',                // The capability needed to view the page
+            'plugin_basename'   =>  plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' ),
+            'tabbed'            => false,
+
         );
-	}
 
-	 /**
-	 * Add settings action link to the plugins page.
-	 *
-	 * @since    1.0.0
-	 */
+        $fields[] = array(
+            'name'   => 'general',
+            'fields' => array(
 
-	public function add_action_links( $links ) {
-	    /*
-	    *  Documentation : https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
-	    */
-	   $settings_link = array(
-	    '<a href="' . admin_url( 'plugins.php?page=' . $this->plugin_name ) . '">' . __('Settings', $this->plugin_name) . '</a>',
-	   );
-	   return array_merge(  $settings_link, $links );
+                array(
+                    'type'    => 'card',
+                    'class'   => 'class-name', // for all fieds
+                    'content' => '<p>' . __("Lazy load images, iframes and videos to improve page load times and user experience. Uses jQuery and Lazy Load XT to only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded. It is also improve SEO, because of the faster page load.", 'exopite-lazy-load-xt') . '</p><p>' .  __("You can exclude content between [NOLAZY] and [/NOLAZY] tags or with a specified class. This is important, if you use other lazy load based plugins, like Master Slider.", 'exopite-lazy-load-xt') . '</p><p>' . __("Since GoogleBOT crawling javascript, there is no disadvantage of this technique.", 'exopite-lazy-load-xt') . ' <a href="https://webmasters.googleblog.com/2014/05/understanding-web-pages-better.html">Official news on crawling and indexing sites for the Google index</a></p>',
+                    'header' => 'Information',
+                ),
 
-	}
+                array(
+                    'id'      => 'autoload',
+                    'type'    => 'switcher',
+                    'title'   => 'Autoload images',
+                    'label'   => 'Autoload images after page is loaded',
+                    'default' => 'yes',
+                ),
 
-	/**
-	 * Render the settings page for this plugin.
-	 *
-	 * @since    1.0.0
-	 */
+                array(
+                    'id'      => 'image',
+                    'type'    => 'switcher',
+                    'title'   => 'Lazyload images',
+                    // 'label'   => 'You want to update for this framework ?',
+                    'default' => 'yes',
+                ),
 
-	public function display_plugin_setup_page() {
-	    include_once( 'partials/exopite-lazy-load-xt-admin-display.php' );
-	}
+                array(
+                    'id'      => 'iframe',
+                    'type'    => 'switcher',
+                    'title'   => 'Lazyload iframes',
+                    // 'label'   => 'You want to update for this framework ?',
+                    'default' => 'yes',
+                ),
 
-	/**
-	 * Validate fields from admin area plugin settings form ('exopite-lazy-load-xt-admin-display.php')
-	 * @param  mixed $input as field form settings form
-	 * @return mixed as validated fields
-	 */
-	public function validate($input) {
-	    // All checkboxes inputs
-	    $valid = array();
+                array(
+                    'id'      => 'video',
+                    'type'    => 'switcher',
+                    'title'   => 'Lazyload videos',
+                    // 'label'   => 'You want to update for this framework ?',
+                    'default' => 'yes',
+                ),
 
-	    $valid['autoload'] = (isset($input['autoload']) && !empty($input['autoload'])) ? 1 : 0;
-	    $valid['image'] = (isset($input['image']) && !empty($input['image'])) ? 1 : 0;
-	    $valid['video'] = (isset($input['video']) && !empty($input['video'])) ? 1: 0;
-	    $valid['iframe'] = (isset($input['iframe']) && !empty($input['iframe'])) ? 1 : 0;
-	    $valid['background'] = (isset($input['background']) && !empty($input['background'])) ? 1 : 0;
-	    $valid['exclude'] = (isset($input['exclude']) && !empty($input['exclude'])) ? 1 : 0;
-        $valid['lazyload-only-in'] = esc_attr($input['lazyload-only-in']);
-        $valid['method'] = esc_attr($input['method']);
-	    $valid['excluded'] = esc_attr($input['excluded']);
+                array(
+                    'id'      => 'background',
+                    'type'    => 'switcher',
+                    'title'   => 'Lazyload background images',
+                    'label'   => '(Please set background url in style tag with data-bg attribute.)',
+                    'default' => 'no',
+                ),
 
-	    return $valid;
-	}
+                array(
+                  'id'      => 'method',
+                  'type'    => 'botton_bar',
+                  'title'   => 'Method',
+                  'options' => array(
+                    'method-1'   => 'Method 1',
+                    'method-2'   => 'Method 2',
+                  ),
+                  'default' => 'method-2',
+                  'after'   => '<i class="text-muted">Method 1: use content,<br>Method 2: process HTML before sent to browser.</i>',
+                ),
 
-	public function options_update() {
-		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
-	}
+                array(
+                    'id'     => 'lazyload-only-in',
+                    'type'   => 'text',
+                    'title'  => 'Lazyload only in selector',
+                ),
+
+                array(
+                    'id'      => 'exclude',
+                    'type'    => 'switcher',
+                    'title'   => 'Exclude classes',
+                    // 'label'   => 'You want to update for this framework ?',
+                    'default' => 'yes',
+                ),
+
+                array(
+                    'id'     => 'excluded',
+                    'type'   => 'text',
+                    'title'  => 'Specify classes to exclude',
+                    'after'  => 'You can specify classes to exclude from being lazy loaded here. Please use a comma separated list, like: no-lazy, nolazy, etc...',
+                ),
+
+                array(
+                    'type'    => 'content',
+                    'content' => '<ul style="list-style: disc; padding-left: 30px; font-size: 0.8em; line-height: 1.3em; max-width: 100%;"><li><a target="_blank" href="https://jquery.com/"><b>jQuery</b></a> ' . __("is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.", 'exopite-lazy-load-xt' ) . '</li><li><a target="_blank" href="http://ressio.github.io/lazy-load-xt/"><b>Lazy load XT</b></a> ' . __( "is a jQuery plugin for images, videos and other media<br>Mobile-oriented, fast and extensible jQuery plugin for lazy loading of images/videos.<br>Currently tested in IE 6-11, Chrome 1-47, Firefox 1.5-43.0, Safari 3-9, Opera 10.6-34.0, iOS 5-9, Android 2.3-5.1, Amazon Kindle Fire 2 and HD 8.9, Opera Mini 7.", 'exopite-lazy-load-xt' ) . '</li><li><a target="_blank" href="http://wppb.io/"><b>The WordPress Plugin Boilerplate</b></a> ' . __("A standardized, organized, bject-oriented foundation for building high-quality WordPress Plugins.", 'exopite-lazy-load-xt' ) . '</li></ul>',
+                ),
+
+
+
+            ),
+
+        );
+
+        $options_panel = new Exopite_Simple_Options_Framework( $config, $fields );
+
+    }
 
 }
