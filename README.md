@@ -62,6 +62,9 @@ OR
 CHANGELOG
 ---------
 
+= 20180101 - 2018-01-01 =
+* Added: new options menu.
+
 = 20171225 - 2017-12-25 =
 * Added: option to select between methods.
 
