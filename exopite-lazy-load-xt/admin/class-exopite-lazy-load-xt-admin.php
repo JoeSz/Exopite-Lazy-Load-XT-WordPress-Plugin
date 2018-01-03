@@ -104,7 +104,7 @@ class Exopite_Lazy_Load_Xt_Admin {
                 array(
                     'type'    => 'card',
                     'class'   => 'class-name', // for all fieds
-                    'content' => '<p>' . __("Lazy load images, iframes and videos to improve page load times and user experience. Uses jQuery and Lazy Load XT to only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded. It is also improve SEO, because of the faster page load.", 'exopite-lazy-load-xt') . '</p><p>' .  __("You can exclude content between [NOLAZY] and [/NOLAZY] tags or with a specified class. This is important, if you use other lazy load based plugins, like Master Slider.", 'exopite-lazy-load-xt') . '</p><p>' . __("Since GoogleBOT crawling javascript, there is no disadvantage of this technique.", 'exopite-lazy-load-xt') . ' <a href="https://webmasters.googleblog.com/2014/05/understanding-web-pages-better.html">Official news on crawling and indexing sites for the Google index</a></p>',
+                    'content' => '<p>' . __("Lazy load images, iframes and videos to improve page load times and user experience. Uses jQuery and Lazy Load XT to only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded. It is also improve SEO, because of the faster page load.", 'exopite-lazy-load-xt') . '</p><p>' .  __("You can exclude content between [NOLAZY] and [/NOLAZY] tags or with a specified class (only method-1). This is important, if you use other lazy load based plugins, like Master Slider.", 'exopite-lazy-load-xt') . '</p><p>' . __("Since GoogleBOT crawling javascript, there is no disadvantage of this technique.", 'exopite-lazy-load-xt') . ' <a href="https://webmasters.googleblog.com/2014/05/understanding-web-pages-better.html">Official news on crawling and indexing sites for the Google index</a></p>',
                     'header' => 'Information',
                 ),
 
@@ -179,6 +179,7 @@ class Exopite_Lazy_Load_Xt_Admin {
                     'type'   => 'text',
                     'title'  => 'Specify classes to exclude',
                     'after'  => 'You can specify classes to exclude from being lazy loaded here. Please use a comma separated list, like: no-lazy, nolazy, etc...',
+                    'dependency' => array( 'exclude', '==', 'true' ),
                 ),
 
                 array(
