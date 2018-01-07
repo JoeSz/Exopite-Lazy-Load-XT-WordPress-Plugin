@@ -176,9 +176,7 @@ class Exopite_Lazy_Load_Xt {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
         $options = get_option($this->plugin_name);
-        $method = $options['method'];
-
-        // $method = 'method-2';
+        $method = ( isset( $options['method'] ) ) ? $options['method'] : 'method-2';
 
         switch ( $method ) {
 
