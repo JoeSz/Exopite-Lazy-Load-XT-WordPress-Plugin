@@ -104,14 +104,14 @@ class Exopite_Lazy_Load_Xt_Admin {
                 array(
                     'type'    => 'card',
                     'class'   => 'class-name', // for all fieds
-                    'content' => '<p>' . __("Lazy load images, iframes and videos to improve page load times and user experience. Uses jQuery and Lazy Load XT to only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded. It is also improve SEO, because of the faster page load.", 'exopite-lazy-load-xt') . '</p><p>' .  __("You can exclude content between [NOLAZY] and [/NOLAZY] tags or with a specified class (only method-1). This is important, if you use other lazy load based plugins, like Master Slider.", 'exopite-lazy-load-xt') . '</p><p>' . __("Since GoogleBOT crawling javascript, there is no disadvantage of this technique.", 'exopite-lazy-load-xt') . ' <a href="https://webmasters.googleblog.com/2014/05/understanding-web-pages-better.html">Official news on crawling and indexing sites for the Google index</a></p>',
+                    'content' => '<p>' . esc_html__("Lazy load images, iframes and videos to improve page load times and user experience. Uses jQuery and Lazy Load XT to only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded. It is also improve SEO, because of the faster page load.", 'exopite-lazy-load-xt') . '</p><p>' .  esc_html__("You can exclude content between [NOLAZY] and [/NOLAZY] tags or with a specified class (only method-1). This is important, if you use other lazy load based plugins, like Master Slider.", 'exopite-lazy-load-xt') . '</p><p>' . esc_html__("Since GoogleBOT crawling javascript, there is no disadvantage of this technique.", 'exopite-lazy-load-xt') . ' <a href="https://webmasters.googleblog.com/2014/05/understanding-web-pages-better.html">' . esc_html__( 'Official news on crawling and indexing sites for the Google index', 'exopite-lazy-load-xt' ) . '</a></p>',
                     'header' => 'Information',
                 ),
 
                 array(
                     'id'      => 'autoload',
                     'type'    => 'switcher',
-                    'title'   => 'Autoload images',
+                    'title'   => esc_html__( 'Autoload images', 'exopite-lazy-load-xt' ),
                     'label'   => 'Autoload images after page is loaded',
                     'default' => 'yes',
                 ),
@@ -119,72 +119,68 @@ class Exopite_Lazy_Load_Xt_Admin {
                 array(
                     'id'      => 'image',
                     'type'    => 'switcher',
-                    'title'   => 'Lazyload images',
-                    // 'label'   => 'You want to update for this framework ?',
+                    'title'   => esc_html__( 'Lazyload images', 'exopite-lazy-load-xt' ),
                     'default' => 'yes',
                 ),
 
                 array(
                     'id'      => 'iframe',
                     'type'    => 'switcher',
-                    'title'   => 'Lazyload iframes',
-                    // 'label'   => 'You want to update for this framework ?',
+                    'title'   => esc_html__( 'Lazyload iframes', 'exopite-lazy-load-xt' ),
                     'default' => 'yes',
                 ),
 
                 array(
                     'id'      => 'video',
                     'type'    => 'switcher',
-                    'title'   => 'Lazyload videos',
-                    // 'label'   => 'You want to update for this framework ?',
+                    'title'   => esc_html__( 'Lazyload videos', 'exopite-lazy-load-xt' ),
                     'default' => 'yes',
                 ),
 
                 array(
                     'id'      => 'background',
                     'type'    => 'switcher',
-                    'title'   => 'Lazyload background images',
-                    'label'   => '(Please set background url in style tag with data-bg attribute.)',
+                    'title'   => esc_html__( 'Lazyload background images', 'exopite-lazy-load-xt' ),
+                    'label'   => esc_html__( '(Please set background url in style tag with data-bg attribute.)', 'exopite-lazy-load-xt' ),
                     'default' => 'no',
                 ),
 
                 array(
                   'id'      => 'method',
                   'type'    => 'botton_bar',
-                  'title'   => 'Method',
+                  'title'   => esc_html__( 'Method', 'exopite-lazy-load-xt' ),
                   'options' => array(
                     'method-1'   => 'Method 1',
                     'method-2'   => 'Method 2',
                   ),
                   'default' => 'method-2',
-                  'after'   => '<i class="text-muted">Method 1: use content,<br>Method 2: process HTML before sent to browser.</i>',
+                  'after'   => '<i class="text-muted">' . esc_html__( 'Method 1: use content,', 'exopite-lazy-load-xt' ) . '<br> ' . esc_html__( 'Method 2: process HTML before sent to browser.', 'exopite-lazy-load-xt' ) . '</i>',
                 ),
 
                 array(
                     'id'     => 'lazyload-only-in',
                     'type'   => 'text',
-                    'title'  => 'Lazyload only in selector',
+                    'title'  => esc_html__( 'Lazyload only in selector', 'exopite-lazy-load-xt' ),
                 ),
 
                 array(
                     'id'      => 'exclude',
                     'type'    => 'switcher',
-                    'title'   => 'Exclude classes',
-                    // 'label'   => 'You want to update for this framework ?',
+                    'title'   => esc_html__( 'Exclude classes', 'exopite-lazy-load-xt' ),
                     'default' => 'yes',
                 ),
 
                 array(
                     'id'     => 'excluded',
                     'type'   => 'text',
-                    'title'  => 'Specify classes to exclude',
-                    'after'  => 'You can specify classes to exclude from being lazy loaded here. Please use a comma separated list, like: no-lazy, nolazy, etc...',
+                    'title'  => esc_html__( 'Specify classes to exclude', 'exopite-lazy-load-xt' ),
+                    'after'  => esc_html__( 'You can specify classes to exclude from being lazy loaded here. Please use a comma separated list, like: no-lazy, nolazy, etc...', 'exopite-lazy-load-xt' ),
                     'dependency' => array( 'exclude', '==', 'true' ),
                 ),
 
                 array(
                     'type'    => 'content',
-                    'content' => '<ul style="list-style: disc; padding-left: 30px; font-size: 0.8em; line-height: 1.3em; max-width: 100%;"><li><a target="_blank" href="https://jquery.com/"><b>jQuery</b></a> ' . __("is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.", 'exopite-lazy-load-xt' ) . '</li><li><a target="_blank" href="http://ressio.github.io/lazy-load-xt/"><b>Lazy load XT</b></a> ' . __( "is a jQuery plugin for images, videos and other media<br>Mobile-oriented, fast and extensible jQuery plugin for lazy loading of images/videos.<br>Currently tested in IE 6-11, Chrome 1-47, Firefox 1.5-43.0, Safari 3-9, Opera 10.6-34.0, iOS 5-9, Android 2.3-5.1, Amazon Kindle Fire 2 and HD 8.9, Opera Mini 7.", 'exopite-lazy-load-xt' ) . '</li><li><a target="_blank" href="http://wppb.io/"><b>The WordPress Plugin Boilerplate</b></a> ' . __("A standardized, organized, bject-oriented foundation for building high-quality WordPress Plugins.", 'exopite-lazy-load-xt' ) . '</li></ul>',
+                    'content' => '<ul style="list-style: disc; padding-left: 30px; font-size: 0.8em; line-height: 1.3em; max-width: 100%;"><li><a target="_blank" href="https://jquery.com/"><b>jQuery</b></a> ' . esc_html__("is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.", 'exopite-lazy-load-xt' ) . '</li><li><a target="_blank" href="http://ressio.github.io/lazy-load-xt/"><b>Lazy load XT</b></a> ' . esc_html__( "is a jQuery plugin for images, videos and other media<br>Mobile-oriented, fast and extensible jQuery plugin for lazy loading of images/videos.<br>Currently tested in IE 6-11, Chrome 1-47, Firefox 1.5-43.0, Safari 3-9, Opera 10.6-34.0, iOS 5-9, Android 2.3-5.1, Amazon Kindle Fire 2 and HD 8.9, Opera Mini 7.", 'exopite-lazy-load-xt' ) . '</li><li><a target="_blank" href="http://wppb.io/"><b>The WordPress Plugin Boilerplate</b></a> ' . esc_html__("A standardized, organized, bject-oriented foundation for building high-quality WordPress Plugins.", 'exopite-lazy-load-xt' ) . '</li></ul>',
                 ),
 
 
