@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://joe.szalai.org
+ * @link              https://joe.szalai.org
  * @since             20180101
  * @package           Exopite_Lazy_Load_Xt
  *
  * @wordpress-plugin
  * Plugin Name:       Exopite Lazy Load XT
- * Plugin URI:        http://joe.szalai.org
+ * Plugin URI:        https://joe.szalai.org/exopite/exopite-lazy-load-xt/
  * Description: 	  Mobile-oriented, fast and extensible jQuery plugin for lazy loading of images/videos. Based on: https://github.com/ressio/lazy-load-xt. Fast, lightwieght and freeware. Skip [NOLAZY][/NOLAZY] section and no-lazy class. Masterslider and other lazyload based slider compatible.
  * Version:           1.0.0
  * Author:            Joe Szalai
- * Author URI:        http://joe.szalai.org
+ * Author URI:        https://joe.szalai.org
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       exopite-lazy-load-xt
