@@ -315,7 +315,7 @@
 (function ($) {
     var options = $.lazyLoadXT;
 
-    options.selector += ',video,iframe[data-src]';
+    options.selector += ',video[data-src],iframe[data-src]';
     options.videoPoster = 'data-poster';
 
     $(document).on('lazyshow', 'video', function (e, $el) {
@@ -333,6 +333,8 @@
                     changed = true;
                 }
             });
+
+            $el.removeClass('lazy-hidden');
 
         // reload video
         if (changed) {
