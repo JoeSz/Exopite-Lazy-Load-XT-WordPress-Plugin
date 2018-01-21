@@ -122,6 +122,8 @@ class Exopite_Lazy_Load_Xt_Public {
         // wp_register_script( 'js-lazyload-extra', plugin_dir_url( __FILE__ ) . 'js/jquery.lazyloadxt.extra.min.js', array( 'jquery' ), '1.9.1', true);
         // wp_enqueue_script( 'js-lazyload-extra' );
 
+        // wp_register_script( 'js-lazyload-complete', plugin_dir_url( __FILE__ ) . 'js/jquery.lazyloadxt.complete.min.js', array( 'jquery' ), '1.9.1', true);
+        // wp_enqueue_script( 'js-lazyload-complete' );
 		wp_register_script( 'js-lazyload-complete', plugin_dir_url( __FILE__ ) . 'js/jquery.lazyloadxt.complete.min.js', array( 'jquery' ), '1.9.1', true);
 		wp_enqueue_script( 'js-lazyload-complete' );
 
@@ -189,7 +191,7 @@ class Exopite_Lazy_Load_Xt_Public {
 
         foreach( $contents as $item ) {
 
-            $item->innertext = $new_content .= $this->do_lazyload_filter( $item->innertext );
+            $item->innertext = $this->do_lazyload_filter( $item->innertext );
             // $item->innertext = $this->do_lazyload( $item->innertext );
 
         }
