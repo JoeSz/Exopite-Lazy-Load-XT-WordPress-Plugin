@@ -7,7 +7,7 @@ Tested up to: 3.4
 Stable tag: 4.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Version: 20180101
+Version: 20180121
 
 Exopite Lazy Load XT is only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded.
 
@@ -52,6 +52,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 20180121 - 2018-01-21 =
+* Fixed: videos only apply to video[data-src].
+* Fixed: remove lazy-hidden from videos.
 
 = 20180101 - 2018-01-01 =
 * Added: new options menu.
