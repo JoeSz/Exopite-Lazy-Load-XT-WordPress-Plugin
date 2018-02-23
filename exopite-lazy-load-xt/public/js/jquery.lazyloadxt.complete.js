@@ -343,6 +343,10 @@
         }
     });
 
+    $(document).on('lazyshow', 'embed', function (e, $el) {
+        $(this).removeClass('lazy-hidden');
+    });
+
 })(window.jQuery || window.Zepto || window.$);
 
 /*! Lazy Load XT v1.1.0 2016-01-12
