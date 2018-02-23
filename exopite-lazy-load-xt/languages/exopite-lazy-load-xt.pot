@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-23 11:37+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin/class-exopite-lazy-load-xt-admin.php:107
+msgid ""
+"Lazy load images, iframes and videos to improve page load times and user "
+"experience. Uses jQuery and Lazy Load XT to only load media when it's "
+"visible in the viewport or with autoload enabled, load images after other "
+"content is loaded. It is also improve SEO, because of the faster page load."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:107
+msgid ""
+"You can exclude content between [NOLAZY] and [/NOLAZY] tags or with a "
+"specified class (only method-1). This is important, if you use other lazy "
+"load based plugins, like Master Slider."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:107
+msgid ""
+"Since GoogleBOT crawling javascript, there is no disadvantage of this "
+"technique."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:107
+msgid "Official news on crawling and indexing sites for the Google index"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:114
+msgid "Autoload images"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:122
+msgid "Lazyload images"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:129
+msgid "Lazyload iframes"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:136
+msgid "Lazyload videos"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:143
+msgid "Lazyload background images"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:144
+msgid "(Please set background url in style tag with data-bg attribute.)"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:151
+msgid "Method"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:157
+msgid "Method 1: use content,"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:157
+msgid "Method 2: process HTML before sent to browser."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:163
+msgid "Lazyload only in selector"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:169
+msgid "Exclude classes"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:176
+msgid "Specify classes to exclude"
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:177
+msgid ""
+"You can specify classes to exclude from being lazy loaded here. Please use a "
+"comma separated list, like: no-lazy, nolazy, etc..."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:183
+msgid ""
+"is a fast, small, and feature-rich JavaScript library. It makes things like "
+"HTML document traversal and manipulation, event handling, animation, and "
+"Ajax much simpler with an easy-to-use API that works across a multitude of "
+"browsers. With a combination of versatility and extensibility, jQuery has "
+"changed the way that millions of people write JavaScript."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:183
+msgid ""
+"is a jQuery plugin for images, videos and other media<br>Mobile-oriented, "
+"fast and extensible jQuery plugin for lazy loading of images/videos."
+"<br>Currently tested in IE 6-11, Chrome 1-47, Firefox 1.5-43.0, Safari 3-9, "
+"Opera 10.6-34.0, iOS 5-9, Android 2.3-5.1, Amazon Kindle Fire 2 and HD 8.9, "
+"Opera Mini 7."
+msgstr ""
+
+#: admin/class-exopite-lazy-load-xt-admin.php:183
+msgid ""
+"A standardized, organized, bject-oriented foundation for building high-"
+"quality WordPress Plugins."
+msgstr ""
+
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:205
+msgid "Settings"
+msgstr ""
+
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:591
+msgid "ERROR:"
+msgstr ""
+
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:592
+msgid "This field class is not available!"
+msgstr ""
+
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:615
+msgid "Saving..."
+msgstr ""
+
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:615
+msgid "Saved Successfully."
+msgstr ""
+
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:624
+#: admin/exopite-simple-options/exopite-simple-options-framework-class.php:639
+msgid "Save Settings"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/attached.php:43
+#, php-format
+msgid "There is no attachment with type %s for this %s."
+msgstr ""
+
+#: admin/exopite-simple-options/fields/image.php:74
+msgid "Add Image"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:70
+msgid "Drop files here"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:79
+msgid "Select files"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:82
+msgid "Upload"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:86
+msgid "Processing dropped files..."
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:100
+#: admin/exopite-simple-options/fields/upload.php:126
+msgid "Cancel"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:101
+msgid "Retry"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:102
+msgid "Delete"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:110
+msgid "Close"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:117
+msgid "No"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:118
+msgid "Yes"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:127
+msgid "Ok"
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:166
+msgid "Max amount of files: "
+msgstr ""
+
+#: admin/exopite-simple-options/fields/upload.php:167
+msgid "Max file upload size: "
+msgstr ""
+
+#: admin/exopite-simple-options/fields/video.php:56
+msgid "Add Video"
+msgstr ""
