@@ -36,13 +36,14 @@ if( ! class_exists( 'Exopite_Simple_Options_Framework_Field_date' ) ) {
 
         }
 
-        public static function enqueue( $plugin_dir_url ) {
+        public static function enqueue( $plugin_sof_url, $plugin_sof_path ) {
 
-            if( ! wp_script_is( 'exopite-sof-datepicker-loader' ) ) {
+            $script_file = 'loader-datepicker.min.js';
+            $script_name = 'exopite-sof-datepicker-loader';
 
-                wp_enqueue_script( 'exopite-sof-datepicker-loader', $plugin_dir_url . 'assets/loader-datepicker.min.js', array( 'wp-color-picker' ), '2.1.3', true );
+            wp_enqueue_script( $script_name, $plugin_sof_url . 'assets/' . $script_file, array( 'jquery' ), filemtime( join( DIRECTORY_SEPARATOR, array( $plugin_sof_path . 'assets', $script_file ) ) ), true );
 
-            }
+            // wp_enqueue_script( 'exopite-sof-datepicker-loader', $plugin_dir_url . 'assets/loader-datepicker.min.js', array( 'wp-color-picker' ), '2.1.3', true );
 
         }
 

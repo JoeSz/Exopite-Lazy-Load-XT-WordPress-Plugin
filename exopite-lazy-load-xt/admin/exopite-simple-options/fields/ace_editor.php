@@ -43,18 +43,18 @@ if( ! class_exists( 'Exopite_Simple_Options_Framework_Field_ace_editor' ) ) {
 
         }
 
-        public static function enqueue( $plugin_dir_url ) {
+        public static function enqueue( $plugin_sof_url, $plugin_sof_path ) {
 
-            if( ! wp_script_is( 'exopite-sof-ace-editor' ) ) {
+            //https://cdnjs.com/libraries/ace/
 
-                //https://cdnjs.com/libraries/ace/
+            wp_enqueue_script( 'ace-editor', '//cdnjs.cloudflare.com/ajax/libs/ace/1.2.4/ace.js', array( 'jquery' ), '1.2.4', true );
 
-                wp_enqueue_script( 'exopite-sof-ace-editor', '//cdnjs.cloudflare.com/ajax/libs/ace/1.2.4/ace.js', array( 'jquery', 'exopite-simple-options-framework-js' ), '1.2.4', true );
+            wp_enqueue_script( 'ace-editor-language_tool', '//cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ext-language_tools.js', array( 'ace-editor' ), '1.2.4', true );
 
-                wp_enqueue_script( 'exopite-sof-ace-editor-language_tool', '//cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ext-language_tools.js', array( 'exopite-sof-ace-editor' ), '1.2.4', true );
+            $script_file = 'ace-loader.min.js';
+            $script_name = 'exopite-sof-ace-loader';
 
-                wp_enqueue_script( 'exopite-simple-options-ace-js', $plugin_dir_url . 'assets/ace-loader.min.js', array( 'exopite-sof-ace-editor-language_tool' ), '20171229', true );
-            }
+            wp_enqueue_script( $script_name, $plugin_sof_url . 'assets/' . $script_file, array( 'ace-editor-language_tool' ), filemtime( join( DIRECTORY_SEPARATOR, array( $plugin_sof_path . 'assets', $script_file ) ) ), true );
 
         }
 

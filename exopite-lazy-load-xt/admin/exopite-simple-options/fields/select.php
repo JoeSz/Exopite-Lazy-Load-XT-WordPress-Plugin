@@ -149,19 +149,20 @@ if( ! class_exists( 'Exopite_Simple_Options_Framework_Field_select' ) ) {
         }
 
 
-        public static function enqueue( $plugin_dir_url ) {
+        public static function enqueue( $plugin_sof_url, $plugin_sof_path ) {
 
-            if( ! wp_script_is( 'jquery-chosen' ) ) {
+            /*
+             * https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.jquery.min.js
+             * https://www.sitepoint.com/jquery-select-box-components-chosen-vs-select2/
+             */
+            wp_enqueue_style( 'jquery-chosen', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.min.css',  array(), '1.8.2', 'all' );
 
-                /*
-                 * https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.jquery.min.js
-                 */
-                wp_enqueue_style( 'jquery-chosen', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.min.css',  array(), '1.8.2', 'all' );
+            wp_enqueue_script( 'jquery-chosen', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.jquery.min.js',  array( 'jquery' ), '1.8.2', true );
 
-                wp_enqueue_script( 'jquery-chosen', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.jquery.min.js',  array( 'jquery' ), '1.8.2', true );
+            $script_file = 'loader-jquery-chosen.min.js';
+            $script_name = 'exopite-sof-jquery-chosen-loader';
 
-                wp_enqueue_script( 'exopite-sof-jquery-chosen-loader', $plugin_dir_url . 'assets/loader-jquery-chosen.min.js', array( 'jquery-chosen' ), '20171229', true );
-            }
+            wp_enqueue_script( $script_name, $plugin_sof_url . 'assets/' . $script_file, array( 'jquery-chosen' ), filemtime( join( DIRECTORY_SEPARATOR, array( $plugin_sof_path . 'assets', $script_file ) ) ), true );
 
         }
 

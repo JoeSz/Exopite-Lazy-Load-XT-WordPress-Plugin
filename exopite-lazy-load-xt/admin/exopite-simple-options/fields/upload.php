@@ -175,7 +175,7 @@ if( ! class_exists( 'Exopite_Simple_Options_Framework_Field_upload' ) ) {
 
         }
 
-        public static function enqueue( $plugin_dir_url ) {
+        public static function enqueue( $plugin_sof_url, $plugin_sof_path ) {
 
             if( ! wp_script_is( 'fine-uploader' ) ) {
 
@@ -183,7 +183,7 @@ if( ! class_exists( 'Exopite_Simple_Options_Framework_Field_upload' ) ) {
                  * https://fineuploader.com/
                  */
                 // If local
-                // wp_enqueue_script( 'fine-uploader', $plugin_dir_url . 'assets/fine-uploader.js', array(), '5.15.5', true );
+                // wp_enqueue_script( 'fine-uploader', $plugin_sof_url . 'assets/fine-uploader.js', array(), '5.15.5', true );
 
                 // Style
                 wp_enqueue_style( 'fine-uploader', '//cdnjs.cloudflare.com/ajax/libs/file-uploader/5.15.5/all.fine-uploader/fine-uploader-new.min.css',  array(), '5.15.5', 'all' );
@@ -194,7 +194,11 @@ if( ! class_exists( 'Exopite_Simple_Options_Framework_Field_upload' ) ) {
                 // Minified version
                 wp_enqueue_script( 'fine-uploader', '//cdnjs.cloudflare.com/ajax/libs/file-uploader/5.15.5/jquery.fine-uploader/jquery.fine-uploader.min.js', array(), '5.15.5', true );
 
-                wp_enqueue_script( 'exopite-sof-fine-uploader-loader', $plugin_dir_url . 'assets/loader-fine-uploader.min.js', array( 'fine-uploader' ), '20171229', true );
+                $script_file = 'loader-fine-uploader.min.js';
+                $script_name = 'exopite-sof-fine-uploader-loader';
+
+                wp_enqueue_script( $script_name, $plugin_sof_url . 'assets/' . $script_file, array( 'fine-uploader' ), filemtime( join( DIRECTORY_SEPARATOR, array( $plugin_sof_path . 'assets', $script_file ) ) ), true );
+
             }
 
         }
