@@ -147,7 +147,7 @@ class Exopite_Lazy_Load_Xt_Admin {
 
                 array(
                   'id'      => 'method',
-                  'type'    => 'botton_bar',
+                  'type'    => 'button_bar',
                   'title'   => esc_html__( 'Method', 'exopite-lazy-load-xt' ),
                   'options' => array(
                     'method-1'   => 'Method 1',
