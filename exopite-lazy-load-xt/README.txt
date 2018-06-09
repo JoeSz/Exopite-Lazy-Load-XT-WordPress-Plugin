@@ -2,12 +2,12 @@
 Contributors: (this should be a list of wordpress.org userid's)
 Donate link: http://joe.szalai.org
 Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Requires at least: 4.7
+Tested up to: 4.9.1
+Stable tag: 4.9.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Version: 20180329
+Version: 20180609
 
 Exopite Lazy Load XT is only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded.
 
@@ -52,6 +52,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 20180609 - 2018-06-09 =
+* Updated: Exopite Simple Options Framework
+* Fixed: typo button_bar field
 
 = 20180329 - 2018-03-29 =
 * Added: Update checker
