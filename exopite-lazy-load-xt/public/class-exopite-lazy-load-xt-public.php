@@ -84,7 +84,7 @@ class Exopite_Lazy_Load_Xt_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/exopite-lazy-load-xt-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/exopite-lazy-load-xt-public.min.css', array(), $this->version, 'all' );
 
 	}
 
