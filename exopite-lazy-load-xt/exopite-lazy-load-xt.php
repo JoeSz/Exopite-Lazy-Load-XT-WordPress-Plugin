@@ -16,7 +16,7 @@
  * Plugin Name:       Exopite Lazy Load XT
  * Plugin URI:        https://joe.szalai.org/exopite/exopite-lazy-load-xt/
  * Description: 	  Mobile-oriented, fast and extensible jQuery plugin for lazy loading of images/videos. Based on: https://github.com/ressio/lazy-load-xt. Fast, lightwieght and freeware. Skip [NOLAZY][/NOLAZY] section and no-lazy class. Masterslider and other lazyload based slider compatible.
- * Version:           20180609
+ * Version:           20181123
  * Author:            Joe Szalai
  * Author URI:        https://joe.szalai.org
  * License:           GPL-2.0+
@@ -80,10 +80,34 @@ if ( is_admin() ) {
     }
 
     $MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'https://update.szalai.org/?action=get_metadata&slug=' . EXOPITE_LAZY_LOAD_XT_PLUGIN_NAME, //Metadata URL.
+        'https://update.joeszalai.org/?action=get_metadata&slug=' . EXOPITE_LAZY_LOAD_XT_PLUGIN_NAME, //Metadata URL.
         __FILE__, //Full path to the main plugin file.
         EXOPITE_LAZY_LOAD_XT_PLUGIN_NAME //Plugin slug. Usually it's the same as the name of the directory.
     );
+
+	/**
+	 * add plugin upgrade notification
+	 * https://andidittrich.de/2015/05/howto-upgrade-notice-for-wordpress-plugins.html
+	 */
+	add_action( 'in_plugin_update_message-' . EXOPITE_LAZY_LOAD_XT_PLUGIN_NAME . '/' . EXOPITE_LAZY_LOAD_XT_PLUGIN_NAME .'.php', 'exopite_lazy_load_xt_show_upgrade_notification', 10, 2 );
+	function exopite_lazy_load_xt_show_upgrade_notification( $current_plugin_metadata, $new_plugin_metadata ) {
+
+		/**
+		 * Check "upgrade_notice" in readme.txt.
+		 *
+		 * Eg.:
+		 * == Upgrade Notice ==
+		 * = 20180624 = <- new version
+		 * Notice		<- message
+		 *
+		 */
+		if ( isset( $new_plugin_metadata->upgrade_notice ) && strlen( trim( $new_plugin_metadata->upgrade_notice ) ) > 0 ) {
+
+			// Display "upgrade_notice".
+			echo sprintf( '<span style="background-color:#d54e21;padding:10px;color:#f9f9f9;margin-top:10px;display:block;"><strong>%1$s: </strong>%2$s</span>', esc_attr( 'Important Upgrade Notice', 'exopite-multifilter' ), esc_html( rtrim( $new_plugin_metadata->upgrade_notice ) ) );
+
+		}
+    }
 
 }
 // End Update
