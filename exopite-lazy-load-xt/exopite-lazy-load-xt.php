@@ -16,7 +16,7 @@
  * Plugin Name:       Exopite Lazy Load XT
  * Plugin URI:        https://joe.szalai.org/exopite/exopite-lazy-load-xt/
  * Description: 	  Mobile-oriented, fast and extensible jQuery plugin for lazy loading of images/videos. Based on: https://github.com/ressio/lazy-load-xt. Fast, lightwieght and freeware. Skip [NOLAZY][/NOLAZY] section and no-lazy class. Masterslider and other lazyload based slider compatible.
- * Version:           20181123
+ * Version:           20190213
  * Author:            Joe Szalai
  * Author URI:        https://joe.szalai.org
  * License:           GPL-2.0+
