@@ -7,7 +7,7 @@ Tested up to: 4.9.1
 Stable tag: 4.9.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Version: 20190213
+Version: 20190521
 
 Exopite Lazy Load XT is only load media when it's visible in the viewport or with autoload enabled, load images after other content is loaded.
 
@@ -52,6 +52,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 20190521 - 2019-05-21 =
+* Update: Update Exopite Simple Options Framework
 
 = 20190213 - 2019-02-13 =
 * Update PHP Simple HTML DOM Parser to 1.8.1 ensure PHP 7.3 compatibility
