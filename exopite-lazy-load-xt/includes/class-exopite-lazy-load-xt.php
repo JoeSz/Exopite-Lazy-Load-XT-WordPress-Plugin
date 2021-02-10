@@ -184,6 +184,10 @@ class Exopite_Lazy_Load_Xt {
         // (#3)
         $rest_url = wp_parse_url( site_url( $prefix ) );
         $current_url = wp_parse_url( add_query_arg( array( ) ) );
+
+		// added to avoid PHP Notice:  Undefined index: path
+		if ( ! isset( $current_url['path'] ) || ! isset( $rest_url['path'] ) ) return false;
+
         return strpos( $current_url['path'], $rest_url['path'], 0 ) === 0;
     }
 
@@ -305,4 +309,3 @@ class Exopite_Lazy_Load_Xt {
 
 
 }
-
