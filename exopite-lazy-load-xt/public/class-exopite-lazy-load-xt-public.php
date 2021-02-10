@@ -154,7 +154,7 @@ class Exopite_Lazy_Load_Xt_Public {
      * @link http://wordpress.stackexchange.com/questions/54986/the-post-thumbnail-with-lazyload-jq-plugin
      */
     function add_lazyload_to_attachment_image( $attr, $attachment ) {
-        if ( ! is_admin() ) {
+        if ( ! is_admin() && isset( $attr['src'] ) ) {
             if ( $attr['src'] != $this->image_lazyload_dummy_image() ) $attr['data-src'] = $attr['src'];
             $attr['src'] = $this->image_lazyload_dummy_image();
         }
